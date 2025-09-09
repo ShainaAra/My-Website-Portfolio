@@ -13,12 +13,9 @@
 </head>
 <body>
     <header class="header">
-
         <a href="#home" class="logo">
-        <span>Shaina Queturas</span>
+            <span>Shaina Queturas</span>
         </a>
-
-        <i class="bx bx-menu" id="menu-icon"></i>
     
         <nav class="navbar">
             <a href="#home">Home</a>
@@ -27,8 +24,11 @@
             <a href="#contact">Contacts</a>
         </nav>
 
-        <button class="gradient-btn">Contact Me</button>
-
+        <div class="header-right">
+            <button class="gradient-btn">Contact Me</button>
+            <i class="bx bx-menu" id="menu-icon"></i>
+        </div>
+    
         <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
             <i class='bx bx-moon'></i>
         </button>
@@ -136,68 +136,70 @@
     </section>
 
 
-    <!--Project Section-->
-    
+
     <section class="projects" id="projects">
 
-        <h2 class="project heading"><span>Projects</span></h2>
+        <div class="project-heading">
+            <h2>Projects</h2>
+            <p>Checkout some of my selected projects</p>
+        </div>
 
-
-        <div class="projects-box">
-
-            <div class="project-card">
-                <img src="EnCoffeeShop1.jpg" alt="">
-                <h3>portfolio</h3>
-                <p>Description</p>
-                
+        <div class="projects-content">
+            <div class="row">
+                <img src="Arohas Winkle.jpg" alt="Arohas Winkle Project">
+                <div class="layer">
+                    <h5>Arohas Winkle Portfolio</h5>
+                    <p>A showcase of a portfolio website built with HTML, CSS, and JavaScript that showcases the brand and products of Arohas's Winkle.</p>
+                </div>
             </div>
 
-            <div class="project-card">
-                <img src="p1.jpg" alt="">
-                <h3>Portfolio</h3>
-                <p>Description</p>
-                
+            <div class="row">
+                <img src="PandaBots.jpg" alt="PandaBots Project">
+                <div class="layer">
+                    <h5>PandaBots</h5>
+                    <p>Pandabots combine the charm of a panda with smart tech! With an expressive OLED display and distance sensors, they dance, navigate, and stay aware of their surroundings. App-controlled for precise movement, Pandabots put innovation in your hands.</p>
+                </div>
             </div>
 
-            <div class="project-card">
-                <img src="p2.jpg" alt="">
-
-                <h3>Portfolio</h3>
-                <p>Description</p>
-                
+            <div class="row">
+                <img src="En Coffee Shop.jpg" alt="En Coffee Shop Project">
+                <div class="layer">
+                    <h5>En Coffee Shop</h5>
+                    <p>This is a simple Java Graphical User Interface for placing coffee order, where users can select coffee orders, where users can select coffee flavor, size, add-ons, service type, and quantity. It calculates the total prrice based on selection and displays the order deatails, with options to finalize the bill or start a new order.</p>
+                </div>
             </div>
         </div>
     </section>
 
     
-    <section class="section contact" id="contact"></div>
+    <section class="section contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
         <h4>I appreciate your interest and invite you to reach out to me at any time!</h4>
         <p class="mail">
-            shainaqueturas@gmail.com    |   09123456789
+            shainaqueturas@gmail.com | 09123456789
         </p>
+            <form id="contactForm" novalidate>
 
-        <form action="#">
+                <div class="input-left">
+                    <input type="text" id="name" name="name" placeholder="Full Name">
+                    <span class="error-message" id="nameError"></span>
 
-            <div class="input-group">
+                    <input type="emial" id="email" name="email" placeholder="Email">
+                    <span class="error-message" id="emailError"></span>
 
-                <div class="input-box">
-                    <input type="Text" placeholder="Full Name">
-                    <input type="email" placeholder="Email">
+                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                    <span class="error-message" id="subjectError"></span>
                 </div>
 
-                <div class="input-box">
-                    <input type="number" placeholder="Phone Number">
-                    <input type="text" placeholder="Subject">
+                <div class="input-right">
+                    <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                    <span class="error-message" id="messageError"></span>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+
                 </div>
-            </div>
-
-            <div class="input-group2">
-                <textarea name="" id="" placeholder="Your Message" cols="30" rows="10"></textarea>
-                <input type="submit" value="Send Message" class="btn">
-            </div>
-
-        </form>
+                
+            </form>
     </section>
 
 

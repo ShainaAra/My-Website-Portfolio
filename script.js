@@ -1,24 +1,23 @@
 // Toggle mobile menu
-document.getElementById('menu-icon').addEventListener('click', function() {
-    const navbar = document.querySelector('.navbar');
+const menuIcon = document.getElementById('menu-icon');
+const navbar = document.querySelector('.navbar');
+
+menuIcon.addEventListener('click', function() {
     navbar.classList.toggle('active');
-    
-    // Change menu icon to close icon when active
+
+    // Toggle icon between hamburger and X
     if (navbar.classList.contains('active')) {
-        this.classList.remove('bx-menu');
-        this.classList.add('bx-x');
+        menuIcon.classList.remove('bx-menu');
+        menuIcon.classList.add('bx-x');
     } else {
-        this.classList.remove('bx-x');
-        this.classList.add('bx-menu');
+        menuIcon.classList.remove('bx-x');
+        menuIcon.classList.add('bx-menu');
     }
 });
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.navbar a').forEach(link => {
     link.addEventListener('click', () => {
-        const navbar = document.querySelector('.navbar');
-        const menuIcon = document.getElementById('menu-icon');
-        
         navbar.classList.remove('active');
         menuIcon.classList.remove('bx-x');
         menuIcon.classList.add('bx-menu');
@@ -98,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
-
+// Theme toggle
 const toggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 const icon = toggleBtn.querySelector('i');
@@ -113,3 +112,68 @@ toggleBtn.addEventListener('click', () => {
   }
 });
 
+
+//for validation in form
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Stop refresh
+
+    // Values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    // Error spans
+    const nameError = document.getElementById("nameError");
+    const emailError = document.getElementById("emailError");
+    const subjectError = document.getElementById("subjectError");
+    const messageError = document.getElementById("messageError");
+
+    // Reset errors
+    nameError.textContent = "";
+    emailError.textContent = "";
+    subjectError.textContent = "";
+    messageError.textContent = "";
+
+    // Patterns
+    const namePattern = /^[A-Za-z\s]+$/; // Only letters & spaces
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+
+    let isValid = true;
+
+    // ✅ Name validation
+    if (name === "") {
+        nameError.textContent = "Fill out this part.";
+        isValid = false;
+    } else if (!namePattern.test(name)) {
+        nameError.textContent = "Name must contain only letters and spaces.";
+        isValid = false;
+    }
+
+    // ✅ Email validation
+    if (email === "") {
+        emailError.textContent = "Fill out this part.";
+        isValid = false;
+    } else if (!emailPattern.test(email)) {
+        emailError.textContent = "Enter a valid email address.";
+        isValid = false;
+    }
+
+    // Subject validation
+    if (subject === "") {
+        subjectError.textContent = "Fill out this part.";
+        isValid = false;
+    }
+
+    // Message validation
+    if (message === "") {
+        messageError.textContent = "Fill out this part.";
+        isValid = false;
+    }
+
+    // ✅ If all valid → success
+    if (isValid) {
+        alert("✅ Thank you! Your message has been sent.");
+        document.getElementById("contactForm").reset();
+    }
+});
