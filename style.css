@@ -49,6 +49,7 @@ body {
     align-items: center;
     gap: 1.5rem;
 }
+
 #theme-toggle{
     order: 1;
     border: 1px ;
@@ -254,12 +255,13 @@ section {
 
 .about-content h2 {
     font-size: 7rem;
-    text-align: left;
+    text-align: center;
     margin-bottom: 2rem;
 }
 
 .about-content p {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    text-align: justify;
     margin-bottom: 2rem;
 }
 
@@ -532,7 +534,7 @@ section {
 
 /* Footer */
 .footer {
-    background-color: var(--bg-color);
+    background-color: var(--second-bg-color);
     padding: 40px 0; /* Top and bottom padding */
 }
 
