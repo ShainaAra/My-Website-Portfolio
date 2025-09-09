@@ -141,7 +141,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
 
     let isValid = true;
 
-    // ✅ Name validation
+    // Name validation
     if (name === "") {
         nameError.textContent = "Fill out this part.";
         isValid = false;
@@ -150,7 +150,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         isValid = false;
     }
 
-    // ✅ Email validation
+    // Email validation
     if (email === "") {
         emailError.textContent = "Fill out this part.";
         isValid = false;
@@ -171,9 +171,9 @@ document.getElementById("contactForm").addEventListener("submit", function(e) {
         isValid = false;
     }
 
-    // ✅ If all valid → success
+    // If all valid → success
     if (isValid) {
-        alert("✅ Thank you! Your message has been sent.");
+        alert("Thank you! Your message has been sent.");
         document.getElementById("contactForm").reset();
     }
 });
