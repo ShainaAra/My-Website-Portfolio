@@ -36,14 +36,13 @@ body {
     left: 0;
     padding: 4rem 15%;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px); /*transparent*/
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
 }
 
-/*header right-group*/
 .header-right {
     display: flex;
     align-items: center;
@@ -51,10 +50,6 @@ body {
     margin: auto;
 }
 
-/*#theme-toggle{
-    order: 1;
-    border: 1px ;
-}*/
 /* Theme Toggle */
 #theme-toggle {
     font-size: 2.5rem;
@@ -64,26 +59,17 @@ body {
     cursor: pointer;
     transition: color 0.3s ease;
 }
+
 #theme-toggle:hover {
     color: var(--text-color);
     transform: scale(1.1);
 }
 
-
-/*#menu-icon {
-    border: 1px; 
-    align-self: flex-end;
-    font-size: 3.5rem;
-    color: var(--main-color);
-    cursor: pointer;
-    margin-bottom: 1rem;
-}*/
-/* Keep icon to the right and aligned */
 #menu-icon {
     font-size: 3.5rem;
     color: var(--main-color);
     cursor: pointer;
-    display: none; /* hidden by default (desktop) */
+    display: none; 
 }
 
 .logo {
@@ -96,12 +82,6 @@ body {
 
 .logo:hover {
     transform: scale(1.1);
-}
-
-span {
-    background: linear-gradient(270deg, #52e741 10%, #0a5a02 100%);
-    background-clip: text;
-    color: transparent;
 }
 
 /* Navbar */
@@ -165,6 +145,7 @@ section {
 
 /* Home Section */
 .home {
+    padding: 17rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -229,6 +210,12 @@ section {
     box-shadow: 0 0 15px var(--shadow-color);
 }
 
+span {
+    background: linear-gradient(270deg, #52e741 10%, #0a5a02 100%);
+    background-clip: text;
+    color: transparent;
+}
+
 .mmsu-link {
     display: inline-flex;
     justify-content: center;
@@ -251,7 +238,7 @@ section {
     box-shadow: 0 0 15px var(--shadow-color);
 }
 
-/* About Section */
+/* ABOUT SECTION */
 .about {
     display: flex;
     justify-content: center;
@@ -341,29 +328,9 @@ section {
     font-size: 1.6rem;
 }
 
-.skill {
-    background: var(--main-color);
-    padding: 0.5rem 1.5rem;
-    border-radius: 2rem;
-    font-size: 1.4rem;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 20px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #101010;
-}
-
-::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-color);
-}
-
-/*Project Section    Container centers everything*/
+/*PROJECT SECTION*/
 .project-heading {
-    text-align: center;       /* Centers h2 and p */
+    text-align: center;   
     margin-bottom: 5rem;
 }
 .project-heading h2 {
@@ -441,7 +408,6 @@ section {
     height: 100%;
 }
 
-/*Project Icon*/
 .project-icons {
     margin-top: 1.5rem;
     display: flex;
@@ -470,7 +436,7 @@ body.light-theme .tech-icon h6 {
 }
 
 
-/*contact Section*/
+/*CONTACT SECTION*/
 .contact {
     background-color: var(--second-bg-color);
 }
@@ -536,7 +502,7 @@ body.light-theme .tech-icon h6 {
 
 .contact .input-right textarea {
     width: 100%;
-    min-height: 200px;
+    min-height: 290px;
     padding: 2.5rem;
     font-size: 1.6rem;
     border-radius: 1rem;
@@ -548,19 +514,11 @@ body.light-theme .tech-icon h6 {
 
 /*Send button*/
 .contact form .btn { 
-    grid-column: 2; /* under the right side */ 
+    grid-column: 1 / -1;  
     justify-self: center; 
-    margin-top: -1.0rem;
+    margin-top: 2rem;
     max-width: 200px;
 }
-
-/* Validation error messages 
-.error-message {
-    color: red;
-    font-size: 2rem;
-    margin-top: -1rem;
-    margin-bottom: 1rem;
-}*/
 
 .btn {
     font-size: 1.8rem;
@@ -579,10 +537,10 @@ body.light-theme .tech-icon h6 {
     transform: scale(1.05);
 }
 
-/* Footer */
+/* FOOTER */
 .footer {
     background-color: var(--bg-color);
-    padding: 40px 0; /* Top and bottom padding */
+    padding: 40px 0; 
 }
 
 .footer .social-icon {
@@ -643,6 +601,30 @@ body.light-theme {
     --scrollbar-color: #dcdcdc;
 }
 
+/* Light mode: Navbar background and links */
+body.light-theme .navbar {
+    background: #ffffff; /* light background for navbar */
+    border-color: var(--shadow-color); /* optional: add border color */
+}
+
+/* Light mode: Navbar link styles */
+body.light-theme .navbar a {
+    color: #000000; /* black text */
+    border-bottom: 3px solid transparent; /* maintain underline effect */
+}
+
+/* Light mode: Navbar link hover effect */
+body.light-theme .navbar a:hover {
+    color: var(--main-color); /* keep your primary accent */
+    border-bottom: 3px solid var(--main-color);
+}
+
+body.light-theme #menu-icon {
+    color: #000; /* make hamburger/X black in light mode */
+}
+
+
+
 /* Light mode fix in the home page section */
 body.light-theme .social-icon a {
   color: #000; /* black icons in light mode */
@@ -677,6 +659,19 @@ input:valid, textarea:valid {
     font-size: 1.3rem;
     margin-top: 0.5rem;
     display: block;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #101010;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-color);
 }
 
 
@@ -728,16 +723,14 @@ input:valid, textarea:valid {
     }
 
     .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 5%;
+        padding: 1.5rem 5%;
+        flex-wrap: nowrap;
     }
 
     .navbar {
         position: absolute;
         top: 70px; /* adjust based on header height */
-        right: 20px; /* position near menu icon */
+        right: 30px; /* position near menu icon */
         width: 200px; /* square size */
         height: auto;
         background: var(--bg-color);
@@ -769,7 +762,7 @@ input:valid, textarea:valid {
     
     .gradient-btn{
         font-size: 1.6rem;
-        padding: 0.8rem 1 rem;
+        padding: 0.8rem 1rem;
     }
 
     .contact form {
@@ -778,6 +771,28 @@ input:valid, textarea:valid {
     .contact form .btn {
         grid-column: 1; /* center button on mobile */
     }
+
+    .header-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* aligns all to the right */
+        gap: 1rem;
+        flex: 1;
+    }
+
+    .gradient-btn {
+        font-size: 1.4rem;
+        padding: 0.6rem 1rem;
+    }
+
+    #theme-toggle {
+        font-size: 2rem;
+    }
+
+    #menu-icon {
+        font-size: 3rem;
+    }
+
 }
 
 @media (min-width: 769px) {

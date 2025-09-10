@@ -56,16 +56,19 @@ document.querySelector('.gradient-btn').addEventListener('click', function() {
 });
 
 // Add scroll effect to header
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const header = document.querySelector('.header');
+    const isLight = document.body.classList.contains('light-theme');
+
     if (window.scrollY > 100) {
-        header.style.background = 'rgba(0, 0, 0, 0.9)';
+        header.style.background = isLight ? 'rgba(255, 255, 255, 0.95)' : 'rgba(0, 0, 0, 0.9)';
         header.style.padding = '2rem 15%';
     } else {
-        header.style.background = 'rgba(0, 0, 0, 0.3)';
+        header.style.background = isLight ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.3)';
         header.style.padding = '4rem 15%';
     }
 });
+
 
 // Animation on scroll
 function animateOnScroll() {
@@ -97,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
-// Theme toggle
 const toggleBtn = document.getElementById('theme-toggle');
 const body = document.body;
 const icon = toggleBtn.querySelector('i');
@@ -110,6 +112,9 @@ toggleBtn.addEventListener('click', () => {
   } else {
     icon.classList.replace('bx-sun', 'bx-moon');
   }
+
+  // 🔥 Trigger scroll event to update header background immediately
+  window.dispatchEvent(new Event('scroll'));
 });
 
 
